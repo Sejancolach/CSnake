@@ -81,17 +81,17 @@ int RunGame(void) {
 
 		if (UpdateAndDrawSnake(snake, tail, movex, movey) != 0) run = 0;	//if player collides with himself end game
 
-		if (snake->x == collectibleX && snake->y == collectibleY) {			//if player collects collectible, make him larger and create a new collectible
+		if (snake->x == collectibleX && snake->y == collectibleY) {		//if player collects collectible, make him larger and create a new collectible
 			tail->child = MakeSnake(tail, tail->x, tail->y);
 			tail = tail->child;
 
-			score++;														//increase the score and print it to the screen
+			score++;							//increase the score and print it to the screen
 			SETCURSORXY(BOARD_WIDTH + 12, 3);
 			printf("%d", score);
 
 			CreateCollectible(&collectibleX,&collectibleY, snake);
 
-			if (sleepTime > 10) sleepTime-=5;								//decrease the sleep time to make the game more difficult
+			if (sleepTime > 10) sleepTime-=5;				//decrease the sleep time to make the game more difficult
 		}
 
 		SETCURSORXY(0, BOARD_HEIGHT + 2);
@@ -181,7 +181,7 @@ int UpdateAndDrawSnake(struct SnakeNode* snake, struct SnakeNode* tail, int mx, 
 
 	struct SnakeNode* tmp = tail;
 	while (tmp->parent != NULL) {
-		if (tmp->x == snake->x && tmp->y == snake->y) return 1; //if the snake collides with itself return 1 and end the game
+		if (tmp->x == snake->x && tmp->y == snake->y) return 1; 	//if the snake collides with itself return 1 and end the game
 		tmp->x = tmp->parent->x;
 		tmp->y = tmp->parent->y;
 		tmp = tmp->parent;
