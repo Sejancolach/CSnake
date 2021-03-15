@@ -65,10 +65,10 @@ int RunGame(void) {
 
 	while (run) {
 		char c = ' ';
-		if (kbhit()) c = getch();					//gets User input if button was pressed
+		if (kbhit()) c = getch();			//gets User input if button was pressed
 
 		switch (c) {
-			case 'q': run = 0; break;				// QUIT
+			case 'q': run = 0; break;		// QUIT
 			case 'w': movex = 0; movey = -1; break; // UP
 			case 'd': movex = 1; movey = 0; break;  // RIGHT
 			case 's': movex = 0; movey = 1; break;  // DOWN
